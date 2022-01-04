@@ -24,7 +24,13 @@ image=[
     '00900',
     '00900'
 ]
+
+battery = 0
+hub.battery.capacity_left()
 while True:
+    if battery != hub.battery.capacity_left():
+        battery = hub.battery.capacity_left()
+        print('Battery: '+str(battery))
     img=hub.Image(':'.join(image))
     hub.display.show(img)
     time.sleep(1)
