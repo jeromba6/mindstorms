@@ -4,7 +4,7 @@ import time
 image=[
     '00900',
     '09990',
-    '99999',
+    '95959',
     '00900',
     '00900'
 ]
@@ -15,17 +15,16 @@ while True:
     if battery != hub.battery.capacity_left():
         battery = hub.battery.capacity_left()
         print('Battery: '+str(battery))
-    print(hub.RIGHT)
     img=hub.Image(':'.join(image))
     hub.display.align(hub.RIGHT)
     hub.display.show(img)
     time.sleep(1)
-    hub.display.rotation(90)
+    hub.display.align(hub.FRONT)
     hub.display.show(img)
     time.sleep(1)
-    hub.display.rotation(180)
+    hub.display.align(hub.LEFT)
     hub.display.show(img)
     time.sleep(1)
-    hub.display.rotation(-90)
+    hub.display.align(hub.BACK)
     hub.display.show(img)
     time.sleep(1)
