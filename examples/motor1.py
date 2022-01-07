@@ -51,9 +51,10 @@ def set_motor(var):
         return hub.port.F
 
 wheels = motor_pair('A','E')
+
 # foward
 wheels.move()
-time.sleep(1)
+time.sleep(2)
 
 # turn right
 wheels.move(direction=50)

@@ -6,9 +6,14 @@ colorsensor = hub.port.C.device
 colorsensor.mode(0)
 colors = {
     0: 'black',
+    1: 'pink',
+    2: 'violet',
     3: 'blue',
-    5: 'green',
+    4: 'light blue',
+    5: 'light green',
+    6: 'green',
     7: 'yellow',
+    8: 'orange',
     9: 'red',
     10: 'white'
 }
