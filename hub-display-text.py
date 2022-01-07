@@ -28,5 +28,5 @@ while True:
         # Wait just long enough to see the blink
         time.sleep(0.05)
 
-    # Wait a bit extra at the end of the string    
+    # Wait a bit extra at the end of the string
     time.sleep(0.95)
