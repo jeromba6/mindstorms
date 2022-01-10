@@ -202,7 +202,6 @@ for i in range(len(melody)):
         sensor_distance.mode(5,b''+chr(led_distance_sensor[0])+chr(led_distance_sensor[1])+chr(led_distance_sensor[2])+chr(led_distance_sensor[3]))
         led_distance_sensor[led_distance_sensor_nr] = (led_distance_sensor[led_distance_sensor_nr]-9) * -1
         led_distance_sensor_nr = (led_distance_sensor_nr + 1) % len(led_distance_sensor)
-        print(hub.status()['port'])
     time.sleep( wholeNoteLeght * ( melody[i][1] + 0.5 ) / 1000 )
 hub.led(255*color[0],255*color[1],255*color[2])
 hub.display.show(hub.Image.HAPPY)
