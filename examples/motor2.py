@@ -56,8 +56,8 @@ wheels = motor_pair('A','E')
 # time.sleep(2)
 
 # turn right
-wheels.move(100)
-time.sleep(2)
+wheels.move(100,50)
+time.sleep(0.3)
 
 wheels.stop()
 raise SystemExit
