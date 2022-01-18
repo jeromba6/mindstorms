@@ -1,3 +1,5 @@
+# LEGO type:standard slot:2 autostart
+
 import hub
 import time
 

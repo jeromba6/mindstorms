@@ -1,3 +1,5 @@
+# LEGO type:standard slot:4 autostart
+
 import hub
 import time
 
@@ -22,7 +24,7 @@ while True:
         # When no mesurement can be done
         if val[0] == None:
             print('Can\'t determine the distance.')
-        
+
         # Output mesurement
         else:
             print('Distance in cm: ',val[0])

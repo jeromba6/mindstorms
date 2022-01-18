@@ -187,7 +187,7 @@ arm_right.run_for_degrees(90,-50)
 
 for i in range(len(melody)):
     if melody[i][0]:
-        # hub.sound.beep( int( tone[melody[i][0]] ), int( wholeNoteLeght * melody[i][1] ))
+        hub.sound.beep( int( tone[melody[i][0]] ), int( wholeNoteLeght * melody[i][1] ))
         hub.display.show(image[imageno])
         hub.led(255*color[0],255*color[1],255*color[2])
         color[colornr] = (color[colornr] + 1) % 2
