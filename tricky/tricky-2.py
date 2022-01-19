@@ -1,4 +1,4 @@
-# LEGO type:standard slot:1 autostart
+# LEGO type:standard slot:2 autostart
 
 import hub
 import time
@@ -126,16 +126,17 @@ while True:
         hub.display.show(hub.Image.HAPPY)
         hub.led((255,0,0))
         wheels.float()
-        wheels.run_at_speed(40,100)
+        wheels.run_at_speed(-40,0)
         time.sleep(2)
-        wheels.run_at_speed(40,-100)
+        wheels.run_at_speed(30,-100)
         time.sleep(1)
     else:
-        wheels.float()
         if distance == None:
+            wheels.run_at_speed(80)
             intensity = 0
             img=hub.Image(':'.join(image_none))
         else:
+            wheels.run_at_speed(50)
             intensity = 255 - int((distance - activate_distance) / (max_distance-activate_distance)*255)
             leds_on = (distance - activate_distance) / dist_range * nr_leds
             nr_leds_on = int(leds_on)
