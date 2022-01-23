@@ -1,12 +1,15 @@
 # LEGO type:standard slot:4 autostart
 """
-Follow line
+Slam dunk
 
 This works as follows:
-When the green light goes is turned off move the colorsensor over the line so it can detrmine the
-low and high value for reflection of the line and the background, be sure not to lift the robot
-during this callibration. When te callibration is done press the left button then the line following
-starts. Have fun and try adjusting some parameters
+First lower arm and reset position to 0
+Drive forward until distance < 6
+Pickup ball by rotate arm to position -90 slowly
+Drive backwards until green is detected
+Dunk ball by rotate arm full speed to -240
+Lower arm to -90
+Drive forward 180 degrees
 """
 
 import hub
@@ -103,23 +106,20 @@ wheels = motor_pair('A', 'B')
 arm          = hub.port.C.motor
 sensor_us    = hub.port.D.device
 sensor_color = hub.port.E.device
-
 sensor_color.mode(0)
+
 arm.run_for_degrees(360,speed=20)
 for i in range(255,-1,-1):
     hub.led((0,i,0))
     time.sleep(0.005)
 
-nr_leds = 25
-
-# # arm.mode((3,0))
 while arm.busy(1):
     time.sleep(0.01)
 arm.preset(0)
 
 wheels.run_at_speed(40)
 distance = sensor_us.get()[0]
-while not distance or distance > 5:
+while not distance or distance => 6:
     time.sleep(0.05)
     distance = sensor_us.get()[0]
 
@@ -131,7 +131,6 @@ while arm.busy(1):
 
 wheels.run_at_speed(-20)
 while not sensor_color.get()[0] == 4:
-    print(sensor_color.get()[0])
     time.sleep(0.05)
 
 wheels.hold()
