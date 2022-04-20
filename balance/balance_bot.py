@@ -8,7 +8,7 @@ wheels = MotorPair('E','A')
 left_motor = Motor('A')
 wheel_left = hub.port.A.motor
 wheel_right = hub.port.E.motor
-upright = hub.port.C.motor
+upright = hub.port.D.motor
 # upright.mode(3)
 hub.led(0,0,255)
 
@@ -50,9 +50,9 @@ for set_pos in range(80,180):
 upright.run_to_position(0,100,100)
 print("Roll_target: {}".format(roll_target))
 roll_target=roll+4
-kp = 11 #proportional gain
+kp = 13 #proportional gain
 ki = 4.2 #integral gain
-kd = 180 #derivative gain
+kd = 140 #derivative gain
 integral = 0
 error = 0
 start_target = 0
@@ -82,7 +82,7 @@ while angle<roll_target+40 and angle>roll_target-40:
         wln = wheel_left.get()[1]
         wrn = wheel_right.get()[1]*-1
         total = wln - wl + wrn - wr
-        print(total)
+        print('---\n',total)
         wl = wln
         wr = wrn
         ct = time.time()
